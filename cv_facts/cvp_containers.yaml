@@ -1,0 +1,66 @@
+---
+AVD_FABRIC:
+    configlets: []
+    imageBundle: ''
+    parentContainerName: Tenant
+DC1:
+    configlets: []
+    imageBundle: ''
+    parentContainerName: AVD_FABRIC
+DC1_BORDER_LEAF12:
+    configlets: []
+    imageBundle: ''
+    parentContainerName: DC1_L3LEAFS
+DC1_L2LEAF12:
+    configlets: []
+    imageBundle: ''
+    parentContainerName: DC1_L2LEAFS
+DC1_L2LEAFS:
+    configlets: []
+    imageBundle: ''
+    parentContainerName: DC1
+DC1_L3LEAFS:
+    configlets: []
+    imageBundle: ''
+    parentContainerName: DC1
+DC1_LEAF12:
+    configlets: []
+    imageBundle: ''
+    parentContainerName: DC1_L3LEAFS
+DC1_LEAF34:
+    configlets: []
+    imageBundle: ''
+    parentContainerName: DC1_L3LEAFS
+DC1_SPINES:
+    configlets: []
+    imageBundle: ''
+    parentContainerName: DC1
+DC2:
+    configlets: []
+    imageBundle: ''
+    parentContainerName: AVD_FABRIC
+DC2_BORDER_LEAF12:
+    configlets: []
+    imageBundle: ''
+    parentContainerName: DC2_L3LEAFS
+DC2_L3LEAFS:
+    configlets: []
+    imageBundle: ''
+    parentContainerName: DC2
+DC2_LEAF12:
+    configlets: []
+    imageBundle: ''
+    parentContainerName: DC2_L3LEAFS
+DC2_LEAF34:
+    configlets: []
+    imageBundle: ''
+    parentContainerName: DC2_L3LEAFS
+DC2_SPINES:
+    configlets: []
+    imageBundle: ''
+    parentContainerName: DC2
+Undefined:
+    configlets: []
+    imageBundle: ''
+    parentContainerName: Tenant
+...

@@ -4,10 +4,10 @@ all:
     CVP:
       hosts:
         cvaas:
-          ansible_httpapi_host: www.cv-staging.corp.arista.io
-          ansible_host: www.cv-staging.corp.arista.io
+          ansible_httpapi_host: www.cv-prod-na-northeast1-b.arista.io
+          ansible_host: www.cv-prod-na-northeast1-b.arista.io
           ansible_user: cvaas
-          ansible_password: "{{ lookup('file', '/Users/tamas/tokens/cvaas.tok')}}"
+          ansible_password: "{{ lookup('file', './tokens/cvaas.tok')}}"
           ansible_become: True
           ansible_become_method: enable
           ansible_connection: httpapi
@@ -16,10 +16,10 @@ all:
           ansible_network_os: eos
           ansible_httpapi_port: 443
         cv_server:
-          ansible_httpapi_host: 10.83.12.79
-          ansible_host: 10.83.12.79
+          ansible_httpapi_host: 192.168.0.5
+          ansible_host: 192.168.0.5
           ansible_user: cvpadmin
-          ansible_password: arastra
+          ansible_password: arista123
           ansible_connection: httpapi
           ansible_httpapi_use_ssl: True
           ansible_httpapi_validate_certs: False

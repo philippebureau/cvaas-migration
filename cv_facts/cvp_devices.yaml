@@ -1,0 +1,182 @@
+---
+-   configlets:
+    - AVD_dc1-leaf2
+    - ACT_basics
+    fqdn: dc1-leaf2.demo.lab
+    hostname: dc1-leaf2
+    imageBundle: ''
+    ipAddress: 192.168.0.13
+    parentContainerName: DC1_LEAF12
+    serialNumber: SN-dc1-leaf2
+    systemMacAddress: 14:10:6b:ee:01:88
+-   configlets:
+    - AVD_dc1-leaf4
+    - ACT_basics
+    fqdn: dc1-leaf4.demo.lab
+    hostname: dc1-leaf4
+    imageBundle: ''
+    ipAddress: 192.168.0.15
+    parentContainerName: DC1_LEAF34
+    serialNumber: SN-dc1-leaf4
+    systemMacAddress: 14:54:78:bf:b6:f4
+-   configlets:
+    - AVD_dc1-l2leaf1
+    - ACT_basics
+    fqdn: dc1-l2leaf1.demo.lab
+    hostname: dc1-l2leaf1
+    imageBundle: ''
+    ipAddress: 192.168.0.16
+    parentContainerName: DC1_L2LEAF12
+    serialNumber: SN-dc1-l2leaf1
+    systemMacAddress: 14:76:55:13:63:6e
+-   configlets:
+    - AVD_dc1-brdr2
+    - ACT_basics
+    fqdn: dc1-brdr2.demo.lab
+    hostname: dc1-brdr2
+    imageBundle: ''
+    ipAddress: 192.168.0.101
+    parentContainerName: DC1_BORDER_LEAF12
+    serialNumber: SN-dc1-brdr2
+    systemMacAddress: 14:3e:8c:3e:e8:c1
+-   configlets:
+    - AVD_dc1-leaf3
+    - ACT_basics
+    fqdn: dc1-leaf3.demo.lab
+    hostname: dc1-leaf3
+    imageBundle: ''
+    ipAddress: 192.168.0.14
+    parentContainerName: DC1_LEAF34
+    serialNumber: SN-dc1-leaf3
+    systemMacAddress: 14:c5:c6:33:9a:29
+-   configlets:
+    - AVD_dc2-leaf1
+    - ACT_basics
+    fqdn: dc2-leaf1.demo.lab
+    hostname: dc2-leaf1
+    imageBundle: ''
+    ipAddress: 192.168.0.22
+    parentContainerName: DC2_LEAF12
+    serialNumber: SN-dc2-leaf1
+    systemMacAddress: 14:a5:94:48:9c:00
+-   configlets:
+    - AVD_dc2-leaf3
+    - ACT_basics
+    fqdn: dc2-leaf3.demo.lab
+    hostname: dc2-leaf3
+    imageBundle: ''
+    ipAddress: 192.168.0.24
+    parentContainerName: DC2_LEAF34
+    serialNumber: SN-dc2-leaf3
+    systemMacAddress: 14:eb:c8:8c:8e:3a
+-   configlets:
+    - AVD_dc2-spine1
+    - ACT_basics
+    fqdn: dc2-spine1.demo.lab
+    hostname: dc2-spine1
+    imageBundle: ''
+    ipAddress: 192.168.0.20
+    parentContainerName: DC2_SPINES
+    serialNumber: SN-dc2-spine1
+    systemMacAddress: 14:3d:9d:47:db:61
+-   configlets:
+    - AVD_dc1-brdr1
+    - ACT_basics
+    fqdn: dc1-brdr1.demo.lab
+    hostname: dc1-brdr1
+    imageBundle: ''
+    ipAddress: 192.168.0.100
+    parentContainerName: DC1_BORDER_LEAF12
+    serialNumber: SN-dc1-brdr1
+    systemMacAddress: 14:82:14:73:47:86
+-   configlets:
+    - ACT_basics
+    - AVD_dc1-spine1
+    fqdn: dc1-spine1.demo.lab
+    hostname: dc1-spine1
+    imageBundle: ''
+    ipAddress: 192.168.0.10
+    parentContainerName: DC1_SPINES
+    serialNumber: SN-dc1-spine1
+    systemMacAddress: 14:f2:af:1b:c2:c2
+-   configlets:
+    - ACT_basics
+    - AVD_dc1-spine2
+    fqdn: dc1-spine2.demo.lab
+    hostname: dc1-spine2
+    imageBundle: ''
+    ipAddress: 192.168.0.11
+    parentContainerName: DC1_SPINES
+    serialNumber: SN-dc1-spine2
+    systemMacAddress: 14:ff:33:79:50:8d
+-   configlets:
+    - ACT_basics
+    - AVD_dc1-leaf1
+    fqdn: dc1-leaf1.demo.lab
+    hostname: dc1-leaf1
+    imageBundle: ''
+    ipAddress: 192.168.0.12
+    parentContainerName: DC1_LEAF12
+    serialNumber: SN-dc1-leaf1
+    systemMacAddress: 14:c7:05:69:2a:60
+-   configlets:
+    - AVD_dc2-brdr2
+    - ACT_basics
+    fqdn: dc2-brdr2.demo.lab
+    hostname: dc2-brdr2
+    imageBundle: ''
+    ipAddress: 192.168.0.201
+    parentContainerName: DC2_BORDER_LEAF12
+    serialNumber: SN-dc2-brdr2
+    systemMacAddress: 14:21:be:fd:91:42
+-   configlets:
+    - AVD_dc2-leaf2
+    - ACT_basics
+    fqdn: dc2-leaf2.demo.lab
+    hostname: dc2-leaf2
+    imageBundle: ''
+    ipAddress: 192.168.0.23
+    parentContainerName: DC2_LEAF12
+    serialNumber: SN-dc2-leaf2
+    systemMacAddress: 14:bf:25:68:13:8e
+-   configlets:
+    - AVD_dc2-leaf4
+    - ACT_basics
+    fqdn: dc2-leaf4.demo.lab
+    hostname: dc2-leaf4
+    imageBundle: ''
+    ipAddress: 192.168.0.25
+    parentContainerName: DC2_LEAF34
+    serialNumber: SN-dc2-leaf4
+    systemMacAddress: 14:28:ea:7a:f6:9b
+-   configlets:
+    - AVD_dc1-l2leaf2
+    - ACT_basics
+    fqdn: dc1-l2leaf2.demo.lab
+    hostname: dc1-l2leaf2
+    imageBundle: ''
+    ipAddress: 192.168.0.17
+    parentContainerName: DC1_L2LEAF12
+    serialNumber: SN-dc1-l2leaf2
+    systemMacAddress: 14:71:04:36:ab:af
+-   configlets:
+    - AVD_dc2-spine2
+    - ACT_basics
+    fqdn: dc2-spine2.demo.lab
+    hostname: dc2-spine2
+    imageBundle: ''
+    ipAddress: 192.168.0.21
+    parentContainerName: DC2_SPINES
+    serialNumber: SN-dc2-spine2
+    systemMacAddress: 14:8c:6b:17:de:99
+-   configlets:
+    - AVD_dc2-brdr1
+    - ACT_basics
+    fqdn: dc2-brdr1.demo.lab
+    hostname: dc2-brdr1
+    imageBundle: ''
+    ipAddress: 192.168.0.200
+    parentContainerName: DC2_BORDER_LEAF12
+    serialNumber: SN-dc2-brdr1
+    systemMacAddress: 14:2d:5b:ba:5b:5c
+...

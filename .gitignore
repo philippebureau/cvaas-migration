@@ -1,8 +1,1 @@
-arista.cvp.debug*
-*-token
-*.tok
-inventory/onprem_devices.yaml
-cv_facts/
-documentation/
-.DS_Store
-token
+.virtualenv
