@@ -1,7 +1,7 @@
 ---
 AVD_FABRIC:
     configlets: []
-    imageBundle: ''
+    imageBundle: veos-lab_4.29.3M
     parentContainerName: Tenant
 DC1:
     configlets: []
