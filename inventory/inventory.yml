@@ -4,10 +4,10 @@ all:
     CVP:
       hosts:
         cvaas:
-          ansible_httpapi_host: www.cv-prod-na-northeast1-b.arista.io
-          ansible_host: www.cv-prod-na-northeast1-b.arista.io
+          ansible_httpapi_host: www.cv-prod-us-central1-c.arista.io
+          ansible_host: www.cv-prod-us-central1-c.arista.io
           ansible_user: cvaas
-          ansible_password: "{{ lookup('file', './tokens/cvaas.tok')}}"
+          ansible_password: "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOjcyMzEyODYwODY2NTAwNDY0MTYsImRzbiI6ImF2ZCIsImRzdCI6ImFjY291bnQiLCJleHAiOjE3MTcyNjY5NTUsImlhdCI6MTY4NzI4NjE2NCwib2dpIjo3MjMxMjg2MDg2NjUwMDQ0MzI4LCJvZ24iOiJmb3huZXdzLWNsb3VkdGVzdCIsInNpZCI6ImViMjM3ZjgyNmU3NjZkNzExZTA3ODk4OTFlOWYwYWVmOWUzYjY1YTE5YTQ4NjdmNDAxNzc2YjVhZDhkNTBiMDEtMU1adDNUUXEzTjU1SDh6SGYwV3ZfTldQMHlWUGhDaWpfVjRlbWdjYiJ9.47s0kGLJSHuxwta555mZUwVE6OZTRMr6ByX7WGyP3VO2DQQ1Hlg0WFwncXy71eDu5MmGVJ6eXj_J92lE2dct_Q"
           ansible_become: True
           ansible_become_method: enable
           ansible_connection: httpapi
@@ -16,8 +16,8 @@ all:
           ansible_network_os: eos
           ansible_httpapi_port: 443
         cv_server:
-          ansible_httpapi_host: 192.168.0.5
-          ansible_host: 192.168.0.5
+          ansible_httpapi_host: 10.255.64.179
+          ansible_host: 10.255.64.179
           ansible_user: cvpadmin
           ansible_password: arista123
           ansible_connection: httpapi

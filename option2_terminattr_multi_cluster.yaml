@@ -4,11 +4,11 @@
   connection: local
   gather_facts: no
   vars:
-    cvaas_api: https://www.cv-prod-na-northeast1-b.arista.io/api/v3/services/admin.Enrollment/AddEnrollmentToken # change the URL to the right CVaaS instance
-    cvaas_token: "{{lookup('file', './tokens/cvaas.tok')}}"
-    cvp_device_api: "https://192.168.0.5/cvpservice/inventory/devices?provisioned=true" # change the IP to the right CVP On-prem instance
-    cvp_token: "{{lookup('file', './tokens/ACT_FOX_CVP.tok')}}"
-    cvp_token_api: "https://192.168.0.5/cvpservice/enroll/createToken"
+    cvaas_api: https://www.cv-prod-us-central1-c.arista.io/api/v3/services/admin.Enrollment/AddEnrollmentToken # change the URL to the right CVaaS instance
+    cvaas_token: "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOjcyMzEyODYwODY2NTAwNDY0MTYsImRzbiI6ImF2ZCIsImRzdCI6ImFjY291bnQiLCJleHAiOjE3MTcyNjY5NTUsImlhdCI6MTY4NzI4NjE2NCwib2dpIjo3MjMxMjg2MDg2NjUwMDQ0MzI4LCJvZ24iOiJmb3huZXdzLWNsb3VkdGVzdCIsInNpZCI6ImViMjM3ZjgyNmU3NjZkNzExZTA3ODk4OTFlOWYwYWVmOWUzYjY1YTE5YTQ4NjdmNDAxNzc2YjVhZDhkNTBiMDEtMU1adDNUUXEzTjU1SDh6SGYwV3ZfTldQMHlWUGhDaWpfVjRlbWdjYiJ9.47s0kGLJSHuxwta555mZUwVE6OZTRMr6ByX7WGyP3VO2DQQ1Hlg0WFwncXy71eDu5MmGVJ6eXj_J92lE2dct_Q"
+    cvp_device_api: "https://10.255.64.179/cvpservice/inventory/devices?provisioned=true" # change the IP to the right CVP On-prem instance
+    cvp_token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOjcyNDY3ODk2Mzg2ODgzNDIxNzQsImRzbiI6ImF2ZCIsImRzdCI6ImFjY291bnQiLCJleHAiOjE3MTc2MTE3ODIsImlhdCI6MTY4NzI4NTM4OCwic2lkIjoiZDQxMWE2MDE4Y2YxNTBmYzBhN2QwNTFiNjhiMGVjYWRiMzA1NzRjYjBkMzllNGFlZWY0MjI0NzIxMDk2ZmYwYi14azZlU29fOGZnVV90WnZoWG5Hd0lVdWkwQXA0eUwySXZYNHc1UlF0In0.q-XY15jOAowCnbvxv5-E6hxXrAfwgNVS7qtizV9nRHGnYBzM9ng4kystMxBidDGTSMcZwy8tBwjfUogr1NeNb4bzMJPonDRLTVW3OXpzGJcznSnqXuSSW8s_jVocC5Ax8RmGP_I0lpeH3KkNeGpeI0LnlTjZQRgabM2KT37mYYR5Ym2N8x5wR_cVnEv-NlF-Px9Sqrd3APTXgNXLa_Fv2kr8Gy52Hk9Jy99wYbbLzSAR8fidW7LmMdbR2gkVd2LxBP2tSHXvfdGxpkKOpJmzdEYHvbEQZnm1vWPLscKbw8iET_gn-nsVbsMdsFl5i_h4jQipGH8cLlRNXCy7axw86nSWYaolYq70eGpw7g1zjN863R3XDXQyFg9f7Z-4XJFRXC2v1lEqLS8QYKOPtoQyJ86KSl4eyNZW_eSFvOtjbP7wV3LvKEOvPdv6i_iQ5u42_sc62Q24mMXyzmW4LAoGM0pQf66rlBPl5myN3hpWjoxUfe4DhpC9Gl9EP0nUD3svSyhcAVM-nbowJEPgCWK0hM4tVDhuLX8ApJrJWHYV5rWBhT3g4uTTQnW14638DQFCIZG_Ak8qorsTf8vGWKd-rDMYe9JhWlnYSUnjJvIEdHqhLVJk_80diUunKdmFyV9Wm-QvfGBF-qcqfnajbxFUonDsnJl7B_mzvwR_xxAsYvM"
+    cvp_token_api: "https://10.255.64.179/cvpservice/enroll/createToken"
   tasks:
   - name: "Generating TerminAttr onboarding token on CVaaS instance"
     tags: [build]
@@ -126,6 +126,6 @@
         - "enable"
         - "config"
         - "daemon TerminAttr"
-        - "exec /usr/bin/TerminAttr -cvopt cvaas.addr=apiserver.cv-prod-na-northeast1-b.arista.io:443 -cvopt cvaas.auth=token-secure,/tmp/cv-onboarding-token -cvopt onprem.addr=192.168.0.5:9910 -cvopt onprem.auth=token,/tmp/token -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -taillogs -disableaaa"
+        - "exec /usr/bin/TerminAttr -cvopt cvaas.addr=apiserver.arista.io:443 -cvopt cvaas.auth=token-secure,/tmp/cv-onboarding-token -cvopt onprem.addr=192.168.0.5:9910 -cvopt onprem.auth=token,/tmp/token -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -taillogs -disableaaa"
         - "shut"
         - "no shut"
