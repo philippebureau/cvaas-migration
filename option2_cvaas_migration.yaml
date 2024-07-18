@@ -67,19 +67,19 @@
       terminattr_config_cvaas: "{{lookup('file', 'terminattr_multi_cluster.cfg')}}"
   tasks:
   - name: "Upload configlets to {{inventory_hostname}}"
-    tags: [cvaas, phase2]
+    tags: [upload1]
     arista.cvp.cv_configlet_v3:
       configlets: "{{hostvars['ACT_CVP'].facts_devices.data.cvp_configlets}}"
       state: present
     delegate_to: cvaas
   - name: "Upload new TerminAttr configlet to {{inventory_hostname}}"
-    tags: [cvaas, phase2]
+    tags: [upload2]
     arista.cvp.cv_configlet_v3:
       configlets: "{{CVP_CONFIGLETS}}"
       state: present
     delegate_to: cvaas
   - name: "Append TerminAttr config to device facts"
-    tags: [cvaas, phase2]
+    tags: [phase2]
     set_fact:
       new_devices_var: |
         {% set res = hostvars['ACT_CVP'].facts_devices.data.cvp_devices -%}
@@ -88,12 +88,12 @@
         {%- endfor %}
         {{ res }}
   - name: "Generate container hierarchy"
-    tags: [cvaas, phase2]
+    tags: [containers]
     arista.cvp.cv_container_v3:
         topology: "{{hostvars['ACT_CVP'].facts_devices.data.cvp_containers}}"
         state: present
   - name: "Move devices to target containers and assign configlets"
-    tags: [cvaas, phase2]
+    tags: [migrate]
     arista.cvp.cv_device_v3:
       devices: "{{new_devices_var}}"
       state: present
