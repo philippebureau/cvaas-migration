@@ -12,7 +12,7 @@
     cvp_token: "{{lookup('file', '~/ACT_AVD_CI_EXTENDED.tok')}}"
   tasks:
   - name: 'Collect devices facts from {{inventory_hostname}}'
-    tags: [facts, phase1]
+    tags: [facts]
     arista.cvp.cv_facts_v3:
       facts:
         - devices
@@ -59,12 +59,12 @@
     delegate_to: localhost
 
 - name: "CVaaS - upload configlets, create container hierarchy, move devices to their target containers and assign configlets"
-  hosts: cvaas
+  hosts: CVaaS
   connection: local
   gather_facts: no
   vars:
     CVP_CONFIGLETS:
-      terminattr_config_cvaas: "{{lookup('file', 'terminattr_multi_cluster.cfg')}}"
+      terminattr_config_cvaas: "{{lookup('file', 'terminattr_cvaas_cluster.cfg')}}"
   tasks:
   - name: "Upload configlets to {{inventory_hostname}}"
     tags: [upload1]
