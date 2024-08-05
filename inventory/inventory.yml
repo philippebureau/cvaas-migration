@@ -1,0 +1,24 @@
+---
+all:
+  children:
+    CVP:
+      hosts:
+        cv_server:
+          ansible_host: 10.18.156.165
+          ansible_user: cvpadmin
+          ansible_password: arista123
+          ansible_connection: httpapi
+          ansible_httpapi_use_ssl: true
+          ansible_httpapi_validate_certs: false
+          ansible_httpapi_port: 443
+          cv_collection: v3
+        cvaas:
+          ansible_host: www.cv-prod-na-northeast1-b.arista.io
+          ansible_user: cvaas
+          ansible_password: "{{lookup('file', '/home/pbureau/cvaas_arista_ce_canada.tok')}}"
+          ansible_connection: httpapi
+          ansible_httpapi_use_ssl: true
+          ansible_httpapi_validate_certs: false
+          ansible_network_os: eos
+          ansible_httpapi_port: 443
+          cv_collection: v3
