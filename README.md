@@ -5,15 +5,16 @@
   - update lines 10 and 12 with proper service account tokens
   - verify credetials at lines 126, 127, 154 and 155
   - update lines 147 and 175 with correct terminattr config
-  - update terminattr_default_vrf.cfg and terminattr_mgmt_vrf.cfg files
+  - update terminattr_default_vrf.cfg and terminattr_mgmt_vrf.cfg files (depends on step5)
 
 ## step1
 run playbook with 'facts' tag
 
 ## step2
-update terminattr_default_vrf.yml and terminattr_mgmt_vrf.yml files
 review cv_facts/cvp_containers.yaml
+  - if you have images assigned to containers, make sure CVaaS has an existing bundle with the same name
 review cv_facts/cvp_devices.yml (might have to clean up extra configlets)
+  - if you have images assigned to containers, make sure CVaaS has an existing bundle with the same name
 
 ## step3
 split the inventory manually

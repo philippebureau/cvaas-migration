@@ -180,40 +180,22 @@
   hosts: cvaas
   connection: local
   gather_facts: no
-  vars:
-    CVP_CONFIGLETS:
-      terminattr_config_cvaas: "{{lookup('file', 'terminattr.cfg')}}"
   tasks:
-  - name: "Push config to {{inventory_hostname}}"
-    tags: [ deploy ]
+  - name: "Push configlets to CVaaS"
+    tags: [ deploy, TEST ]
     arista.cvp.cv_configlet_v3:
-      configlets: "{{hostvars['cv_server'].facts_devices.data.cvp_configlets}}"
+      configlets: "{{ lookup('file', 'cv_facts/cvp_configlets.yaml') | from_yaml }}"
       state: present
     delegate_to: cvaas
-  - name: "Push new TerminAttr configlet"
-    tags: [ deploy ]
-    arista.cvp.cv_configlet_v3:
-      configlets: "{{CVP_CONFIGLETS}}"
-      state: present
-    delegate_to: cvaas
-  # - name: "Append TerminAttr config to device facts"
-  #   tags: [ deploy ]
-  #   set_fact:
-  #     new_devices_var: |
-  #       {% set res = hostvars['cv_server'].facts_devices.data.cvp_devices -%}
-  #       {% for device in res -%}
-  #       {%     do device.configlets.append("terminattr_config_cvaas") -%}
-  #       {%- endfor %}
-  #       {{ res }}
   - name: "Generate container hierarchy"
-    tags: [ deploy ]
+    tags: [ deploy, TEST2 ]
     arista.cvp.cv_container_v3:
-      topology: "{{hostvars['cv_server'].facts_devices.data.cvp_containers}}"
+      topology: "{{ lookup('file', 'cv_facts/cvp_containers.yaml') | from_yaml }}"
       state: present
   - name: "Move devices to target containers and assign configlets"
-    tags: [ deploy ]
+    tags: [ deploy, TEST3 ]
     arista.cvp.cv_device_v3:
-      devices: "{{new_devices_var}}"
+      devices: "{{lookup('file', 'cv_facts/cvp_devices.yaml') | from_yaml }}"
       state: present
       search_key: fqdn
     delegate_to: cvaas

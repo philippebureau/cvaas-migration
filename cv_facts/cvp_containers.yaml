@@ -4,7 +4,8 @@ DATACENTER:
     imageBundle: ''
     parentContainerName: Tenant
 DC1:
-    configlets: []
+    configlets:
+    - TEST
     imageBundle: ''
     parentContainerName: DATACENTER
 DC1_BORDER_LEAF12:
