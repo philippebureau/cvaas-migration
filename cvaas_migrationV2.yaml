@@ -182,18 +182,18 @@
   gather_facts: no
   tasks:
   - name: "Push configlets to CVaaS"
-    tags: [ deploy, TEST ]
+    tags: [ deploy ]
     arista.cvp.cv_configlet_v3:
       configlets: "{{ lookup('file', 'cv_facts/cvp_configlets.yaml') | from_yaml }}"
       state: present
     delegate_to: cvaas
   - name: "Generate container hierarchy"
-    tags: [ deploy, TEST2 ]
+    tags: [ deploy ]
     arista.cvp.cv_container_v3:
       topology: "{{ lookup('file', 'cv_facts/cvp_containers.yaml') | from_yaml }}"
       state: present
   - name: "Move devices to target containers and assign configlets"
-    tags: [ deploy, TEST3 ]
+    tags: [ deploy ]
     arista.cvp.cv_device_v3:
       devices: "{{lookup('file', 'cv_facts/cvp_devices.yaml') | from_yaml }}"
       state: present
