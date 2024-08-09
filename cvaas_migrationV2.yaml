@@ -1,5 +1,6 @@
 # This playbook is aimed to migrate all the devices, configlets and containers from an on-prem CVP to CVaaS
 # Author: Tamas Plugor - EMEA
+# This playbook was modifed from the main branch to accomodate environments with different TerminAttr configs
 ---
 - name: "Fetch CV on-prem device inventory and generate CVaaS onboarding token"
   hosts: cv_server
