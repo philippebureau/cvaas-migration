@@ -1,7 +1,6 @@
 # This playbook is aimed to migrate all the devices, configlets and containers from an on-prem CVP to CVaaS
-# Author: Tamas Plugor - EMEA
+# Author: Philippe Bureau
 # This playbook was modifed from the main branch to accomodate environments with different TerminAttr configs
----
 - name: "Fetch CV on-prem device inventory and generate CVaaS onboarding token"
   hosts: cv_server
   connection: local
@@ -183,7 +182,7 @@
   gather_facts: no
   tasks:
   - name: "Push configlets to CVaaS"
-    tags: [ deploy ]
+    tags: [ deploy, configlets ]
     arista.cvp.cv_configlet_v3:
       configlets: "{{ lookup('file', 'cv_facts/cvp_configlets.yaml') | from_yaml }}"
       state: present
