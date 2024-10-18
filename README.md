@@ -1,15 +1,8 @@
 # Custom README
 
 ## Before you start
-  - make sure lines 9 and 11 have the proper targets
-  - update lines 10 and 12 with proper service account tokens
-  - verify credetials at lines 126, 127, 154 and 155
-  - update lines 147 and 175 with correct terminattr config
-  - update terminattr_default_vrf.cfg and terminattr_mgmt_vrf.cfg files (depends on optional step bellow)
-
-## optional
-  - You can change the TerminAttr config in the existing onprem CVP without executing the tasks so the migrated configuration will already have the proper TerminAttr configuration.  
-  - if this method is used, you do not need to execute step5
+  - Update inventory/group_vars/CVP.yml variables with CVP and EOS variables for your infrastructure
+  - update terminattr.cfg file with correct configuration.  This file will be uploaded as a configlet on CVaaS and assigned to all devices
 
 ## step1
 run playbook with 'facts' tag
@@ -18,20 +11,20 @@ run playbook with 'facts' tag
 review cv_facts/cvp_containers.yaml
   - if you have images assigned to containers, make sure CVaaS has an existing bundle with the same name
 review cv_facts/cvp_devices.yml (might have to clean up extra configlets)
-  - if you have images assigned to containers, make sure CVaaS has an existing bundle with the same name
+  - if you have images assigned to devices, make sure CVaaS has an existing bundle with the same name
 
 ## step3
-split the inventory manually
-  - split with 2 headers [mgmt_vrf] and [default_vrf]
+split the inventory/onprem_devices.yaml inventory manually
+  - split with headers [group1], [group2]...
   - delete [onprem_devices]
+  example:
+  ![](./media/inventory_split_example.png)
 
 ## step4
+modify the inventory/group_vars/CVP.yml file deployement variables to point at the group you want (ex: group1) defined in step3
 run playbook with 'deploy' tag 
 notes: 
   - make sure you point to the inventory folder, not idividual inventory file
-
-## step5 (see optional step above)
-Add The correct TerminAttr configlets to CVaaS appropriate containers
 
 ## step6
 validate the generated tasks on CVaaS and execute.
