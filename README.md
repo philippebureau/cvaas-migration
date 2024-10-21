@@ -1,11 +1,14 @@
-# Custom README
+# Instructions
 
 ## Before you start
   - Update inventory/group_vars/CVP.yml variables with CVP and EOS variables for your infrastructure
-  - update terminattr.cfg file with correct configuration.  This file will be uploaded as a configlet on CVaaS and assigned to all devices
+  - update terminattr.cfg file with correct configuration if planned to be used (see terminattr tag description).  This file will be uploaded as a configlet on CVaaS and assigned to all devices
 
 ## step1
 run playbook with 'facts' tag
+```
+ansible-playbook cvaas_migrationV2.yaml -i inventory --tags facts
+```
 
 ## step2
 review cv_facts/cvp_containers.yaml
@@ -22,9 +25,23 @@ split the inventory/onprem_devices.yaml inventory manually
 
 ## step4
 modify the inventory/group_vars/CVP.yml file deployement variables to point at the group you want (ex: group1) defined in step3
-run playbook with 'deploy' tag 
+run playbook with 'deploy' tag or terminattr and deploy tags if you want to add a new terminattr configlet
 notes: 
-  - make sure you point to the inventory folder, not idividual inventory file
+  - make sure you point to the inventory folder, not idividual inventory file (-i inventory)
+
+```
+ansible-playbook cvaas_migrationV2.yaml -i inventory --tags deploy
+```
+or 
+
+```
+ansible-playbook cvaas_migrationV2.yaml -i inventory --tags deploy, terminattr
+```
 
 ## step6
 validate the generated tasks on CVaaS and execute.
+
+## TAGS description
+- **facts** -- will import data from on-prem CVP and save it to cv_facts folder 
+- **deploy** -- will upload the configlets, configure the devices to stream to CVaaS, move devices to the proper containers and attach relevant configlets
+- **terminattr** -- will create a new configlet on CVaaS for the new terminattr config and assign it to every node
