@@ -126,8 +126,8 @@
       dest: "{{ cv_facts_dir }}/cvp_configlets.yaml"
     delegate_to: localhost
 
-- name: "Copying the CVaaS token and reconfiguring TerminAttr on default vrf devices"
-  hosts: default_vrf
+- name: "Copying the CVaaS token and reconfiguring TerminAttr on devices"
+  hosts: "{{ (lookup('template', 'inventory/group_vars/all.yml')|from_yaml).deploy_target }}"
   vars:
     # ansible_user: cvpadmin # Moved to group_vars
     # ansible_password: arista123 # Moved to group_var
@@ -161,6 +161,7 @@
   vars:
     CVP_CONFIGLETS:
       terminattr_config_cvaas: "{{lookup('file', 'terminattr.cfg')}}"
+    CVP_DEVICES: "{{lookup('file', 'cv_facts/cvp_devices.yaml') | from_yaml }}"
   tasks:
   - name: "Push configlets to CVaaS"
     tags: [ deploy, configlets ]
@@ -178,7 +179,7 @@
     tags: [ terminattr ]
     set_fact:
       new_devices_var: |
-        {% set res = hostvars['cv_server'].facts_devices.data.cvp_devices -%}
+        {% set res = CVP_DEVICES -%}
         {% for device in res -%}
         {%     do device.configlets.append("terminattr_config_cvaas") -%}
         {%- endfor %}

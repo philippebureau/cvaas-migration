@@ -1,6 +1,139 @@
 ---
 -   configlets:
-    - TEST
+    - AVD_dc2-spine1
+    fqdn: dc2-spine1.demo.lab
+    hostname: dc2-spine1
+    imageBundle: veos-4.32.0F
+    ipAddress: 192.168.0.20
+    parentContainerName: DC2_SPINES
+    serialNumber: SN-dc2-spine1
+    systemMacAddress: 84:87:74:23:a5:e0
+-   configlets:
+    - AVD_dc1-l2leaf1
+    fqdn: dc1-l2leaf1.demo.lab
+    hostname: dc1-l2leaf1
+    imageBundle: vEOS-lab-ACT_4.32.1F
+    ipAddress: 192.168.0.16
+    parentContainerName: DC1_L2LEAF12
+    serialNumber: SN-dc1-l2leaf1
+    systemMacAddress: 84:88:61:40:b1:b8
+-   configlets:
+    - AVD_p2
+    fqdn: p2.demo.lab
+    hostname: p2
+    imageBundle: veos-4.32.0F
+    ipAddress: 192.168.0.222
+    parentContainerName: P
+    serialNumber: SN-p2
+    systemMacAddress: 84:ee:0b:f5:d4:5c
+-   configlets:
+    - AVD_p3
+    fqdn: p3.demo.lab
+    hostname: p3
+    imageBundle: veos-4.32.0F
+    ipAddress: 192.168.0.223
+    parentContainerName: P
+    serialNumber: SN-p3
+    systemMacAddress: 84:88:05:dc:ef:91
+-   configlets:
+    - AVD_dc1-brdr1
+    fqdn: dc1-brdr1.demo.lab
+    hostname: dc1-brdr1
+    imageBundle: vEOS-lab-ACT_4.32.1F
+    ipAddress: 192.168.0.100
+    parentContainerName: DC1_BORDER_LEAF12
+    serialNumber: SN-dc1-brdr1
+    systemMacAddress: 84:17:9a:59:27:68
+-   configlets:
+    - AVD_dc2-leaf4
+    fqdn: dc2-leaf4.demo.lab
+    hostname: dc2-leaf4
+    imageBundle: veos-4.32.0F
+    ipAddress: 192.168.0.25
+    parentContainerName: DC2_LEAF34
+    serialNumber: SN-dc2-leaf4
+    systemMacAddress: 84:4d:0a:9e:12:dd
+-   configlets:
+    - AVD_dc2-leaf1
+    fqdn: dc2-leaf1.demo.lab
+    hostname: dc2-leaf1
+    imageBundle: veos-4.32.0F
+    ipAddress: 192.168.0.22
+    parentContainerName: DC2_LEAF12
+    serialNumber: SN-dc2-leaf1
+    systemMacAddress: 84:00:56:2e:c6:12
+-   configlets:
+    - AVD_pe1
+    fqdn: pe1.demo.lab
+    hostname: pe1
+    imageBundle: veos-4.32.0F
+    ipAddress: 192.168.0.225
+    parentContainerName: PE
+    serialNumber: SN-pe1
+    systemMacAddress: 84:09:01:1d:de:6f
+-   configlets:
+    - AVD_pe2
+    fqdn: pe2.demo.lab
+    hostname: pe2
+    imageBundle: veos-4.32.0F
+    ipAddress: 192.168.0.226
+    parentContainerName: PE
+    serialNumber: SN-pe2
+    systemMacAddress: 84:08:2f:1f:64:aa
+-   configlets:
+    - AVD_dc1-l2leaf2
+    fqdn: dc1-l2leaf2.demo.lab
+    hostname: dc1-l2leaf2
+    imageBundle: vEOS-lab-ACT_4.32.1F
+    ipAddress: 192.168.0.17
+    parentContainerName: DC1_L2LEAF12
+    serialNumber: SN-dc1-l2leaf2
+    systemMacAddress: 84:9e:14:d9:3f:84
+-   configlets: []
+    fqdn: sw-10.18.154.196.demo.lab
+    hostname: sw-10.18.154.196
+    imageBundle: ''
+    ipAddress: 10.18.154.196
+    parentContainerName: Undefined
+    serialNumber: SN-spare
+    systemMacAddress: 84:84:05:dc:a4:f7
+-   configlets:
+    - AVD_dc2-spine2
+    fqdn: dc2-spine2.demo.lab
+    hostname: dc2-spine2
+    imageBundle: veos-4.32.0F
+    ipAddress: 192.168.0.21
+    parentContainerName: DC2_SPINES
+    serialNumber: SN-dc2-spine2
+    systemMacAddress: 84:c9:3a:81:e6:27
+-   configlets:
+    - AVD_dc2-brdr2
+    fqdn: dc2-brdr2.demo.lab
+    hostname: dc2-brdr2
+    imageBundle: veos-4.32.0F
+    ipAddress: 192.168.0.201
+    parentContainerName: DC2_BORDER_LEAF12
+    serialNumber: SN-dc2-brdr2
+    systemMacAddress: 84:27:b4:0d:5a:99
+-   configlets:
+    - AVD_dc2-brdr1
+    fqdn: dc2-brdr1.demo.lab
+    hostname: dc2-brdr1
+    imageBundle: veos-4.32.0F
+    ipAddress: 192.168.0.200
+    parentContainerName: DC2_BORDER_LEAF12
+    serialNumber: SN-dc2-brdr1
+    systemMacAddress: 84:ac:81:04:a4:11
+-   configlets:
+    - AVD_dc1-spine2
+    fqdn: dc1-spine2.demo.lab
+    hostname: dc1-spine2
+    imageBundle: vEOS-lab-ACT_4.32.1F
+    ipAddress: 192.168.0.11
+    parentContainerName: DC1_SPINES
+    serialNumber: SN-dc1-spine2
+    systemMacAddress: 84:83:a0:f4:76:99
+-   configlets:
     - AVD_dc1-brdr2
     fqdn: dc1-brdr2.demo.lab
     hostname: dc1-brdr2
@@ -10,14 +143,32 @@
     serialNumber: SN-dc1-brdr2
     systemMacAddress: 84:17:16:41:7f:65
 -   configlets:
-    - AVD_dc2-leaf2
-    fqdn: dc2-leaf2.demo.lab
-    hostname: dc2-leaf2
+    - AVD_rr2
+    fqdn: rr2.demo.lab
+    hostname: rr2
     imageBundle: veos-4.32.0F
-    ipAddress: 192.168.0.23
-    parentContainerName: DC2_LEAF12
-    serialNumber: SN-dc2-leaf2
-    systemMacAddress: 84:b3:bc:df:9f:64
+    ipAddress: 192.168.0.228
+    parentContainerName: RR
+    serialNumber: SN-rr2
+    systemMacAddress: 84:c6:8c:0c:a6:16
+-   configlets:
+    - AVD_dc1-leaf3
+    fqdn: dc1-leaf3.demo.lab
+    hostname: dc1-leaf3
+    imageBundle: vEOS-lab-ACT_4.32.1F
+    ipAddress: 192.168.0.14
+    parentContainerName: DC1_LEAF34
+    serialNumber: SN-dc1-leaf3
+    systemMacAddress: 84:0c:6f:20:52:53
+-   configlets:
+    - AVD_dc2-leaf3
+    fqdn: dc2-leaf3.demo.lab
+    hostname: dc2-leaf3
+    imageBundle: veos-4.32.0F
+    ipAddress: 192.168.0.24
+    parentContainerName: DC2_LEAF34
+    serialNumber: SN-dc2-leaf3
+    systemMacAddress: 84:6f:2b:5b:db:a7
 -   configlets:
     - AVD_p1
     fqdn: p1.demo.lab
@@ -36,26 +187,33 @@
     parentContainerName: P
     serialNumber: SN-p4
     systemMacAddress: 84:6a:c1:e4:eb:db
+-   configlets: []
+    fqdn: dc1-leaf5.demo.lab
+    hostname: dc1-leaf5
+    imageBundle: ''
+    ipAddress: 10.18.154.252
+    parentContainerName: Undefined
+    serialNumber: SN-dc1-leaf5
+    systemMacAddress: 84:8b:3e:26:e5:2f
 -   configlets:
-    - AVD_dc2-brdr2
-    fqdn: dc2-brdr2.demo.lab
-    hostname: dc2-brdr2
+    - AVD_dc2-leaf2
+    fqdn: dc2-leaf2.demo.lab
+    hostname: dc2-leaf2
     imageBundle: veos-4.32.0F
-    ipAddress: 192.168.0.201
-    parentContainerName: DC2_BORDER_LEAF12
-    serialNumber: SN-dc2-brdr2
-    systemMacAddress: 84:27:b4:0d:5a:99
+    ipAddress: 192.168.0.23
+    parentContainerName: DC2_LEAF12
+    serialNumber: SN-dc2-leaf2
+    systemMacAddress: 84:b3:bc:df:9f:64
 -   configlets:
-    - AVD_dc2-spine2
-    fqdn: dc2-spine2.demo.lab
-    hostname: dc2-spine2
-    imageBundle: veos-4.32.0F
-    ipAddress: 192.168.0.21
-    parentContainerName: DC2_SPINES
-    serialNumber: SN-dc2-spine2
-    systemMacAddress: 84:c9:3a:81:e6:27
+    - AVD_dc1-leaf2
+    fqdn: dc1-leaf2.demo.lab
+    hostname: dc1-leaf2
+    imageBundle: vEOS-lab-ACT_4.32.1F
+    ipAddress: 192.168.0.13
+    parentContainerName: DC1_LEAF12
+    serialNumber: SN-dc1-leaf2
+    systemMacAddress: 84:82:d5:1b:ce:19
 -   configlets:
-    - TEST
     - AVD_dc1-leaf1
     fqdn: dc1-leaf1.demo.lab
     hostname: dc1-leaf1
@@ -64,15 +222,6 @@
     parentContainerName: DC1_LEAF12
     serialNumber: SN-dc1-leaf1
     systemMacAddress: 84:3b:a0:1e:1d:8f
--   configlets:
-    - AVD_pe1
-    fqdn: pe1.demo.lab
-    hostname: pe1
-    imageBundle: veos-4.32.0F
-    ipAddress: 192.168.0.225
-    parentContainerName: PE
-    serialNumber: SN-pe1
-    systemMacAddress: 84:09:01:1d:de:6f
 -   configlets:
     - AVD_rr1
     fqdn: rr1.demo.lab
@@ -83,156 +232,7 @@
     serialNumber: SN-rr1
     systemMacAddress: 84:d9:45:8a:82:32
 -   configlets:
-    - TEST
-    - AVD_dc1-brdr1
-    fqdn: dc1-brdr1.demo.lab
-    hostname: dc1-brdr1
-    imageBundle: vEOS-lab-ACT_4.32.1F
-    ipAddress: 192.168.0.100
-    parentContainerName: DC1_BORDER_LEAF12
-    serialNumber: SN-dc1-brdr1
-    systemMacAddress: 84:17:9a:59:27:68
--   configlets:
-    - AVD_pe2
-    fqdn: pe2.demo.lab
-    hostname: pe2
-    imageBundle: veos-4.32.0F
-    ipAddress: 192.168.0.226
-    parentContainerName: PE
-    serialNumber: SN-pe2
-    systemMacAddress: 84:08:2f:1f:64:aa
--   configlets: []
-    fqdn: dc1-leaf5.demo.lab
-    hostname: dc1-leaf5
-    imageBundle: ''
-    ipAddress: 10.18.154.252
-    parentContainerName: Undefined
-    serialNumber: SN-dc1-leaf5
-    systemMacAddress: 84:8b:3e:26:e5:2f
--   configlets:
-    - AVD_dc2-leaf3
-    fqdn: dc2-leaf3.demo.lab
-    hostname: dc2-leaf3
-    imageBundle: veos-4.32.0F
-    ipAddress: 192.168.0.24
-    parentContainerName: DC2_LEAF34
-    serialNumber: SN-dc2-leaf3
-    systemMacAddress: 84:6f:2b:5b:db:a7
--   configlets:
-    - AVD_p2
-    fqdn: p2.demo.lab
-    hostname: p2
-    imageBundle: veos-4.32.0F
-    ipAddress: 192.168.0.222
-    parentContainerName: P
-    serialNumber: SN-p2
-    systemMacAddress: 84:ee:0b:f5:d4:5c
--   configlets:
-    - AVD_dc2-leaf1
-    fqdn: dc2-leaf1.demo.lab
-    hostname: dc2-leaf1
-    imageBundle: veos-4.32.0F
-    ipAddress: 192.168.0.22
-    parentContainerName: DC2_LEAF12
-    serialNumber: SN-dc2-leaf1
-    systemMacAddress: 84:00:56:2e:c6:12
--   configlets:
-    - AVD_dc2-leaf4
-    fqdn: dc2-leaf4.demo.lab
-    hostname: dc2-leaf4
-    imageBundle: veos-4.32.0F
-    ipAddress: 192.168.0.25
-    parentContainerName: DC2_LEAF34
-    serialNumber: SN-dc2-leaf4
-    systemMacAddress: 84:4d:0a:9e:12:dd
--   configlets: []
-    fqdn: sw-10.18.154.196.demo.lab
-    hostname: sw-10.18.154.196
-    imageBundle: ''
-    ipAddress: 10.18.154.196
-    parentContainerName: Undefined
-    serialNumber: SN-spare
-    systemMacAddress: 84:84:05:dc:a4:f7
--   configlets:
-    - AVD_dc2-brdr1
-    fqdn: dc2-brdr1.demo.lab
-    hostname: dc2-brdr1
-    imageBundle: veos-4.32.0F
-    ipAddress: 192.168.0.200
-    parentContainerName: DC2_BORDER_LEAF12
-    serialNumber: SN-dc2-brdr1
-    systemMacAddress: 84:ac:81:04:a4:11
--   configlets:
-    - TEST
-    - AVD_dc1-leaf2
-    fqdn: dc1-leaf2.demo.lab
-    hostname: dc1-leaf2
-    imageBundle: vEOS-lab-ACT_4.32.1F
-    ipAddress: 192.168.0.13
-    parentContainerName: DC1_LEAF12
-    serialNumber: SN-dc1-leaf2
-    systemMacAddress: 84:82:d5:1b:ce:19
--   configlets:
-    - AVD_p3
-    fqdn: p3.demo.lab
-    hostname: p3
-    imageBundle: veos-4.32.0F
-    ipAddress: 192.168.0.223
-    parentContainerName: P
-    serialNumber: SN-p3
-    systemMacAddress: 84:88:05:dc:ef:91
--   configlets:
-    - TEST
-    - AVD_dc1-l2leaf2
-    fqdn: dc1-l2leaf2.demo.lab
-    hostname: dc1-l2leaf2
-    imageBundle: vEOS-lab-ACT_4.32.1F
-    ipAddress: 192.168.0.17
-    parentContainerName: DC1_L2LEAF12
-    serialNumber: SN-dc1-l2leaf2
-    systemMacAddress: 84:9e:14:d9:3f:84
--   configlets:
-    - TEST
-    - AVD_dc1-leaf4
-    fqdn: dc1-leaf4.demo.lab
-    hostname: dc1-leaf4
-    imageBundle: vEOS-lab-ACT_4.32.1F
-    ipAddress: 192.168.0.15
-    parentContainerName: DC1_LEAF34
-    serialNumber: SN-dc1-leaf4
-    systemMacAddress: 84:89:b8:a1:2f:b0
--   configlets:
-    - AVD_rr2
-    fqdn: rr2.demo.lab
-    hostname: rr2
-    imageBundle: veos-4.32.0F
-    ipAddress: 192.168.0.228
-    parentContainerName: RR
-    serialNumber: SN-rr2
-    systemMacAddress: 84:c6:8c:0c:a6:16
--   configlets:
-    - TEST
-    - AVD_dc1-l2leaf1
-    fqdn: dc1-l2leaf1.demo.lab
-    hostname: dc1-l2leaf1
-    imageBundle: vEOS-lab-ACT_4.32.1F
-    ipAddress: 192.168.0.16
-    parentContainerName: DC1_L2LEAF12
-    serialNumber: SN-dc1-l2leaf1
-    systemMacAddress: 84:88:61:40:b1:b8
--   configlets:
-    - TEST
-    - AVD_dc1-leaf3
-    fqdn: dc1-leaf3.demo.lab
-    hostname: dc1-leaf3
-    imageBundle: vEOS-lab-ACT_4.32.1F
-    ipAddress: 192.168.0.14
-    parentContainerName: DC1_LEAF34
-    serialNumber: SN-dc1-leaf3
-    systemMacAddress: 84:0c:6f:20:52:53
--   configlets:
     - AVD_dc1-spine1
-    - TEST
     fqdn: dc1-spine1.demo.lab
     hostname: dc1-spine1
     imageBundle: vEOS-lab-ACT_4.32.1F
@@ -241,22 +241,12 @@
     serialNumber: SN-dc1-spine1
     systemMacAddress: 84:9f:86:70:5b:1d
 -   configlets:
-    - TEST
-    - AVD_dc1-spine2
-    fqdn: dc1-spine2.demo.lab
-    hostname: dc1-spine2
+    - AVD_dc1-leaf4
+    fqdn: dc1-leaf4.demo.lab
+    hostname: dc1-leaf4
     imageBundle: vEOS-lab-ACT_4.32.1F
-    ipAddress: 192.168.0.11
-    parentContainerName: DC1_SPINES
-    serialNumber: SN-dc1-spine2
-    systemMacAddress: 84:83:a0:f4:76:99
--   configlets:
-    - AVD_dc2-spine1
-    fqdn: dc2-spine1.demo.lab
-    hostname: dc2-spine1
-    imageBundle: veos-4.32.0F
-    ipAddress: 192.168.0.20
-    parentContainerName: DC2_SPINES
-    serialNumber: SN-dc2-spine1
-    systemMacAddress: 84:87:74:23:a5:e0
+    ipAddress: 192.168.0.15
+    parentContainerName: DC1_LEAF34
+    serialNumber: SN-dc1-leaf4
+    systemMacAddress: 84:89:b8:a1:2f:b0
 ...

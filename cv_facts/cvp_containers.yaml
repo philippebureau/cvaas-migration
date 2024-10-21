@@ -4,8 +4,7 @@ DATACENTER:
     imageBundle: ''
     parentContainerName: Tenant
 DC1:
-    configlets:
-    - TEST
+    configlets: []
     imageBundle: vEOS-lab-ACT_4.32.1F
     parentContainerName: DATACENTER
 DC1_BORDER_LEAF12:
