@@ -3,6 +3,12 @@
 # Author: Philippe Bureau, modified from Tamas Plugor's original repo
 # This playbook was modifed from the main branch to allow multi-step migration
 
+- name: Prevent execution without tags
+  hosts: localhost
+  tasks:
+  - name: Prevent run without tags
+    fail: msg="You must run this playbook with tags!"
+
 - name: "Fetch CV on-prem device inventory and generate CVaaS onboarding token"
   hosts: cv_server
   connection: local
@@ -152,6 +158,9 @@
   hosts: cvaas
   connection: local
   gather_facts: no
+  vars:
+    CVP_CONFIGLETS:
+      terminattr_config_cvaas: "{{lookup('file', 'terminattr.cfg')}}"
   tasks:
   - name: "Push configlets to CVaaS"
     tags: [ deploy, configlets ]
@@ -159,6 +168,21 @@
       configlets: "{{ lookup('file', 'cv_facts/cvp_configlets.yaml') | from_yaml }}"
       state: present
     delegate_to: cvaas
+  - name: "Push new TerminAttr configlet"
+    tags: [ terminattr ]
+    arista.cvp.cv_configlet_v3:
+      configlets: "{{CVP_CONFIGLETS}}"
+      state: present
+    delegate_to: cvaas
+  - name: "Append TerminAttr config to device facts"
+    tags: [ terminattr ]
+    set_fact:
+      new_devices_var: |
+        {% set res = hostvars['cv_server'].facts_devices.data.cvp_devices -%}
+        {% for device in res -%}
+        {%     do device.configlets.append("terminattr_config_cvaas") -%}
+        {%- endfor %}
+        {{ res }}
   - name: "Generate container hierarchy"
     tags: [ deploy ]
     arista.cvp.cv_container_v3:
