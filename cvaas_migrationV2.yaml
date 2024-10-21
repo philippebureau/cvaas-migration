@@ -1,6 +1,6 @@
 ---
 # This playbook is aimed to migrate devices, configlets and containers from an on-prem CVP to CVaaS in multiple steps
-# Author: Philippe Bureau
+# Author: Philippe Bureau, modified from Tamas Plugor's original repo
 # This playbook was modifed from the main branch to allow multi-step migration
 
 - name: "Fetch CV on-prem device inventory and generate CVaaS onboarding token"
