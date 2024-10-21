@@ -44,4 +44,4 @@ validate the generated tasks on CVaaS and execute.
 ## TAGS description
 - **facts** -- will import data from on-prem CVP and save it to cv_facts folder 
 - **deploy** -- will upload the configlets, configure the devices to stream to CVaaS, move devices to the proper containers and attach relevant configlets
-- **terminattr** -- will create a new configlet on CVaaS for the new terminattr config and assign it to every node.  This is done in memory during the playbook and will not modify cv_facts/CVP_DEVICES.yaml file
+- **terminattr** -- will create a new configlet on CVaaS for the new terminattr config and assign it to every node.  This is done in memory during the playbook and will not modify cv_facts/CVP_DEVICES.yaml file.  Running deploy without this tag expect that the configlet container TerminAttr config is/was updated manually.
