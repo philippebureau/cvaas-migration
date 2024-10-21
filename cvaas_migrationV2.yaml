@@ -123,8 +123,8 @@
 - name: "Copying the CVaaS token and reconfiguring TerminAttr on default vrf devices"
   hosts: default_vrf
   vars:
-    # ansible_user: cvpadmin # Change to match devices user
-    # ansible_password: arista123 # Change to match devices password
+    # ansible_user: cvpadmin # Moved to group_vars
+    # ansible_password: arista123 # Moved to group_var
     ansible_connection: network_cli
     ansible_httpapi_use_ssl: True
     ansible_httpapi_validate_certs: False
@@ -145,34 +145,6 @@
         - "config"
         - "daemon TerminAttr"
         - "{{ terminattr_config }}"
-        - "shut"
-        - "no shut"
-
-- name: "Copying the CVaaS token and reconfiguring TerminAttr on MGMT vrf devices"
-  hosts: "{{ deploy_target }}"
-  vars:
-    ansible_user: cvpadmin # Change to match devices password
-    ansible_password: arista123 # Change to match devices password
-    ansible_connection: network_cli
-    ansible_httpapi_use_ssl: True
-    ansible_httpapi_validate_certs: False
-    ansible_network_os: eos
-    ansible_httpapi_port: 443
-    ansible_python_interpreter: $(which python3)
-  tasks:
-  - name: Copy CVaaS token
-    tags: [ deploy ]
-    net_put:
-      src: "./cv-onboarding-token"
-      dest: "/tmp/cv-onboarding-token"
-  - name: "Configuring TerminAttr on {{ inventory_hostname }}"
-    tags: [ deploy ]
-    eos_command:
-      commands:
-        - "enable"
-        - "config"
-        - "daemon TerminAttr"
-        - "exec /usr/bin/TerminAttr -cvaddr=apiserver.cv-prod-na-northeast1-b.arista.io:443 -disableaaa -cvcompression=gzip -cvvrf=MGMT -taillogs -cvauth=token-secure,/tmp/cv-onboarding-token -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent"
         - "shut"
         - "no shut"
 
